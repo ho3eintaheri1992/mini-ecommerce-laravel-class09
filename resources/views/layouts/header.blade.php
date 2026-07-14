@@ -28,7 +28,7 @@
                 </form>
             </div>
             <!-- Logo -->
-            <a href="http://127.0.0.1:8000" class="flex flex-col text-center ml-20">
+            <a href="{{route('index')}}" class="flex flex-col text-center ml-20">
                     <span class="font-MorabbaMedium text-4xl flex items-center">
                         فروشگاه<span class="text-blue-500">درنیکا</span>
                     </span>
@@ -38,12 +38,16 @@
             <div class="flex items-center gap-x-3">
                 <!-- LOGIN -->
                 <button class="flex-center py-2 px-4  app-border rounded-full app-hover">
-                    <a href="http://127.0.0.1:8000/auth/login" class="flex items-center gap-x-2">
-                        <p>ورود | ثبت‌نام</p>
-                        <svg class="size-5">
-                            <use href="#arrow-left-end"/>
-                        </svg>
-                    </a>
+                   @auth()
+                       خالی
+                    @else
+                        <a href="{{route('auth.login.index')}}" class="flex items-center gap-x-2">
+                            <p>ورود | ثبت‌نام</p>
+                            <svg class="size-5">
+                                <use href="#arrow-left-end"/>
+                            </svg>
+                        </a>
+                    @endauth
                 </button>
 
                 <!-- Toggle theme -->
@@ -133,7 +137,7 @@
                 </ul>
             </div>
             <!-- Logo -->
-            <a href="index.html" class="flex flex-col text-center">
+            <a href="{{route('index')}}" class="flex flex-col text-center">
                     <span class="font-MorabbaMedium text-3xl flex items-center">
                         فروشگاه<span class="text-blue-500">درنیکا</span>
                     </span>
